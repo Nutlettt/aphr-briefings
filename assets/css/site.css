@@ -784,6 +784,10 @@ a {
   color: #4b5563;
 }
 
+.site-counter[hidden] {
+  display: none;
+}
+
 .site-counter img {
   height: 22px;
   width: auto;

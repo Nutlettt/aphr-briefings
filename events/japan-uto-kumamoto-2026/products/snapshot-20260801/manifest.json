@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "bundle_type": "aphr_web_product",
+  "product_type": "snapshot_briefing",
+  "content_path": "content.html",
+  "title": "Snapshot briefing · Aug 1, 2026 05:23 UTC",
+  "event_title": "2026 Uto–Kumamoto (Kyushu), Japan",
+  "event_date": "2026-07-28",
+  "generated_at": "2026-08-01T05:27:59Z",
+  "model": "gpt-5.6-sol",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "building",
+      "title": "Building Damage"
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure Impact"
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience and Recovery"
+    },
+    {
+      "id": "references",
+      "title": "References"
+    }
+  ],
+  "counts": {
+    "facts_cited": 41,
+    "facts_total": 402,
+    "sources": 32
+  },
+  "assets": {
+    "intensity_image": "assets/intensity.jpg",
+    "pager_images": [
+      "assets/pager_1.png",
+      "assets/pager_2.png"
+    ]
+  },
+  "source": {
+    "workflow": "main.generate_report_for_event"
+  },
+  "event": {
+    "event_id": "us6000tgb9",
+    "city": "Uto, Kumamoto, Japan",
+    "rupture_time_utc": "2026-07-28T07:27:15Z",
+    "rupture_time_local": "2026-07-28T16:27:15+09:00",
+    "usgs_event_url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9"
+  },
+  "snapshot": {
+    "snapshot_time": "2026-08-01T05:23:10Z",
+    "elapsed_hours_since_rupture": 93.93,
+    "collection_provider": "newscatcher",
+    "articles_raw": 300,
+    "articles_filtered": 293
+  },
+  "event_slug": "japan-uto-kumamoto-2026",
+  "product_slug": "snapshot-20260801"
+}

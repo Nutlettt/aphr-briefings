@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "japan-uto-kumamoto-2026",
+  "title": "2026 Uto–Kumamoto (Kyushu), Japan",
+  "event_type": "Earthquake",
+  "event_date": "2026-07-28",
+  "tag": "Snapshot briefing",
+  "meta": "M6.8 · Jul 28, 2026 16:27 JST · 32 sources",
+  "description": "System-generated APHR snapshot briefing for the July 28, 2026 Uto–Kumamoto earthquake in Kyushu, Japan.",
+  "products": [
+    {
+      "slug": "snapshot-20260801",
+      "title": "Snapshot briefing · Aug 1, 2026 05:23 UTC",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-08-01T05:27:59Z",
+      "counts": {
+        "facts_cited": 41,
+        "facts_total": 402,
+        "sources": 32
+      },
+      "summary": "System-generated APHR snapshot briefing based on 293 filtered articles, citing 41 of 402 candidate facts across 32 references.",
+      "manifest_path": "products/snapshot-20260801/manifest.json",
+      "snapshot_time": "2026-08-01T05:23:10Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20260801"
+}
