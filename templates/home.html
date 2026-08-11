@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page_title }}</title>
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260810-ui">
 </head>
-<body>
+<body class="page-home">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   {{ topbar }}
   {{ content_drawer }}
   <div class="site-shell">
-    <main class="site-main">
+    <main class="site-main" id="main-content">
       {{ brand_strip }}
 
       <header class="site-header" id="overview">
@@ -18,26 +19,66 @@
         <p class="site-subtitle">Preliminary automated post-hazard reconnaissance (APHR) briefings, organized by event and snapshot time for rapid situational awareness and expert review.</p>
       </header>
 
-      <div class="site-counter" aria-label="Site visit counter" hidden>
-        <span>Site visits:</span>
-        <img
-          src="https://api.visitorbadge.io/api/visitors?path=k-mosalam.github.io%2Faphr-briefings&label=&countColor=%23263759"
-          onload="this.closest('.site-counter').hidden = false"
-          onerror="this.closest('.site-counter').hidden = true"
-          alt="Site visit counter">
-      </div>
-
-      <section class="timeline-section" id="events" aria-label="APHR event timeline">
+      <section class="timeline-section" id="events" aria-labelledby="event-activity-title">
+        <div class="section-heading">
+          <h2 id="event-activity-title">Event activity</h2>
+        </div>
         <div class="timeline-list event-timeline">
         {{ event_timeline }}
         </div>
       </section>
 
+      <section class="acknowledgments-section" id="acknowledgments" aria-labelledby="acknowledgments-title">
+        <header class="acknowledgments-header">
+          <h2 id="acknowledgments-title">Acknowledgments</h2>
+        </header>
+
+        <ul class="acknowledgments-list">
+          <li class="acknowledgment-row">
+            <p class="acknowledgment-title">Research support</p>
+            <p class="acknowledgment-copy">
+              Supported by the <a href="https://www.steer.network/">StEER Network</a>
+              through the <a href="https://www.nsf.gov/">National Science Foundation</a>
+              under Grant No. CMMI 2103550, and by the Taisei Chair of Civil
+              Engineering at UC Berkeley.
+            </p>
+          </li>
+
+          <li class="acknowledgment-row">
+            <a class="newscatcher-logo" href="https://www.newscatcherapi.com/" aria-label="Visit the NewsCatcher website">
+              <img
+                src="assets/images/newscatcher-black.png"
+                width="1426"
+                height="173"
+                loading="lazy"
+                decoding="async"
+                alt="NewsCatcher">
+            </a>
+            <div class="newscatcher-copy">
+              <p class="acknowledgment-title">Academic news access</p>
+              <p class="acknowledgment-copy">
+                APHR uses the NewsCatcher News API for timely, source-attributed
+                news discovery. We gratefully acknowledge the NewsCatcher team
+                for providing the academic API access that supports this research.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
       <footer class="site-footer" id="site-footer">
-        Khalid M. Mosalam and Guanren Zhou · University of California, Berkeley
+        <p class="site-footer-credit">Khalid M. Mosalam and Guanren Zhou · University of California, Berkeley</p>
+        <div class="site-counter" aria-label="Site visit counter" hidden>
+          <span>Site visits:</span>
+          <img
+            src="https://api.visitorbadge.io/api/visitors?path=k-mosalam.github.io%2Faphr-briefings&amp;label=&amp;countColor=%23263759"
+            onload="this.closest('.site-counter').hidden = false"
+            onerror="this.closest('.site-counter').hidden = true"
+            alt="Site visit counter">
+        </div>
       </footer>
     </main>
   </div>
-  <script src="assets/js/site.js"></script>
+  <script src="assets/js/site.js?v=20260810-ui"></script>
 </body>
 </html>

@@ -12,16 +12,18 @@ from typing import Any, Dict, Iterable, List
 
 ROOT = Path(__file__).resolve().parents[1]
 
-BRAND_STRIP = """
-<div class="brand-strip" aria-label="Project partner logos">
-  <a class="brand-logo" href="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/NSF-and-STEER.png" target="_blank" rel="noopener">
-    <img src="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/NSF-and-STEER.png" alt="NSF and StEER logo">
+
+def _render_brand_strip(asset_prefix: str = "") -> str:
+    return f"""
+<div class="brand-strip" role="group" aria-label="Research affiliations and supporters">
+  <a class="brand-logo brand-logo-nsf-steer" href="https://www.steer.network/" target="_blank" rel="noopener" aria-label="Visit the StEER Network website">
+    <img src="{asset_prefix}assets/images/nsf-steer.png" width="542" height="134" alt="National Science Foundation and StEER Network">
   </a>
-  <a class="brand-logo brand-logo-peer" href="https://cdn.jsdelivr.net/gh/Nutlettt/logo-for-webs-dev@main/PEER-logo.svg" target="_blank" rel="noopener">
-    <img src="https://cdn.jsdelivr.net/gh/Nutlettt/logo-for-webs-dev@main/PEER-logo.svg" alt="PEER logo">
+  <a class="brand-logo brand-logo-peer" href="https://peer.berkeley.edu/" target="_blank" rel="noopener" aria-label="Visit the Pacific Earthquake Engineering Research Center website">
+    <img src="{asset_prefix}assets/images/peer-logo.svg" width="95" height="96" alt="Pacific Earthquake Engineering Research Center">
   </a>
-  <a class="brand-logo" href="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/cropped-stairlab-slogan.png" target="_blank" rel="noopener">
-    <img src="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/cropped-stairlab-slogan.png" alt="STAIRLab logo">
+  <a class="brand-logo brand-logo-stairlab" href="https://stairlab.berkeley.edu/" target="_blank" rel="noopener" aria-label="Visit the STAIRLab website">
+    <img src="{asset_prefix}assets/images/stairlab.png" width="1535" height="226" alt="STAIRLab">
   </a>
 </div>
 """.strip()
@@ -72,7 +74,7 @@ def _render_topbar(crumbs: List[Dict[str, str]]) -> str:
     return f"""
 <div class="global-topbar">
   {_render_breadcrumb(crumbs)}
-  <button type="button" class="content-menu-button" data-site-nav-open="site-content-drawer" aria-label="Open contents" title="Contents" data-tooltip="Contents">
+  <button type="button" class="content-menu-button" data-site-nav-open="site-content-drawer" aria-controls="site-content-drawer" aria-expanded="false" aria-label="Open contents" data-tooltip="Contents">
     <span class="hamburger" aria-hidden="true"><span></span></span>
   </button>
 </div>
@@ -88,7 +90,7 @@ def _render_content_drawer(links: List[Dict[str, str]]) -> str:
         for link in links
     )
     return f"""
-<div class="site-nav-shell" id="site-content-drawer" aria-hidden="true">
+<div class="site-nav-shell" id="site-content-drawer" aria-hidden="true" inert>
   <div class="site-nav-backdrop" data-site-nav-close></div>
   <aside class="site-nav-panel" role="dialog" aria-modal="true" aria-labelledby="site-nav-title">
     <div class="site-nav-header">
@@ -312,7 +314,7 @@ def _render_home_timeline(events: Iterable[Dict[str, Any]]) -> str:
         </div>
         <div class="timeline-body">
           <div class="timeline-kicker">{escape(event_type)} · {escape(tag)}</div>
-          <h2 class="timeline-title">{title}</h2>
+          <h3 class="timeline-title">{title}</h3>
           <div class="timeline-meta">{_compact_meta_bits(*meta_bits)}</div>
           <a class="timeline-link" href="events/{escape(slug, quote=True)}/">{button}<span aria-hidden="true">&rarr;</span></a>
         </div>
@@ -347,7 +349,7 @@ def _render_product_timeline_item(event: Dict[str, Any], product: Dict[str, Any]
         </div>
         <div class="timeline-body">
           <div class="timeline-kicker">{escape(tag)}</div>
-          <h2 class="timeline-title">{title}</h2>
+          <h3 class="timeline-title">{title}</h3>
           <div class="timeline-meta">{_compact_meta_bits(*meta_bits)}</div>
           <a class="timeline-link" href="{escape(_product_href(product), quote=True)}">Open snapshot<span aria-hidden="true">&rarr;</span></a>
         </div>
@@ -377,7 +379,7 @@ def _render_temporal_feature(event: Dict[str, Any], products: Iterable[Dict[str,
             f"""
         <article class="featured-product">
           <div class="featured-product-kicker">{escape(_product_status_label(event, product))}</div>
-          <h2>{title}</h2>
+          <h3>{title}</h3>
           <div class="timeline-meta">{_compact_meta_bits(*meta_bits)}</div>
           {f'<p>{summary}</p>' if summary else ''}
           <a class="timeline-link" href="{escape(_product_href(product), quote=True)}">Open temporal analysis<span aria-hidden="true">&rarr;</span></a>
@@ -409,7 +411,7 @@ def _render_snapshot_empty() -> str:
 def _render_product_meta(event: Dict[str, Any], manifest: Dict[str, Any]) -> str:
     pills = []
     if manifest.get("generated_at"):
-        pills.append(f"Generated {manifest['generated_at']}")
+        pills.append(f"Generated {_format_generated(manifest['generated_at'])}")
     counts = manifest.get("counts", {})
     if _is_temporal_product(manifest):
         if counts.get("snapshots") is not None:
@@ -472,7 +474,7 @@ def _build_product_page(event: Dict[str, Any], product: Dict[str, Any]) -> None:
                 )
             ),
             "content_drawer": _render_content_drawer(_product_toc(manifest)),
-            "brand_strip": BRAND_STRIP,
+            "brand_strip": _render_brand_strip("../../../../"),
             "product_type": escape(product_type),
             "event_title": escape(str(event.get("title", manifest.get("event_title", "")))),
             "product_title": escape(product_title),
@@ -515,7 +517,7 @@ def _build_event_page(event: Dict[str, Any]) -> None:
                 )
             ),
             "content_drawer": _render_content_drawer(drawer_links),
-            "brand_strip": BRAND_STRIP,
+            "brand_strip": _render_brand_strip("../../"),
             "event_type": escape(str(event.get("event_type", "APHR event"))),
             "event_title": escape(str(event.get("title", event["slug"]))),
             "event_description": escape(_event_meta_text(event)),
@@ -547,10 +549,10 @@ def build_site() -> None:
                 [
                     {"label": "Overview", "href": "#overview"},
                     {"label": "Events", "href": "#events"},
-                    {"label": "Credits", "href": "#site-footer"},
+                    {"label": "Acknowledgments", "href": "#acknowledgments"},
                 ]
             ),
-            "brand_strip": BRAND_STRIP,
+            "brand_strip": _render_brand_strip(),
             "event_timeline": _render_home_timeline(events),
         },
     )

@@ -4,16 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page_title }}</title>
-  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="../../assets/css/site.css?v=20260810-ui">
 </head>
-<body>
+<body class="page-event">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   {{ topbar }}
   {{ content_drawer }}
   <div class="site-shell">
-    <main class="site-main">
+    <main class="site-main" id="main-content">
       {{ brand_strip }}
 
       <header class="site-header" id="event-overview">
+        <p class="site-eyebrow">{{ event_type }}</p>
         <h1 class="site-title">{{ event_title }}</h1>
         <p class="site-subtitle">{{ event_description }}</p>
       </header>
@@ -34,6 +36,6 @@
       </footer>
     </main>
   </div>
-  <script src="../../assets/js/site.js"></script>
+  <script src="../../assets/js/site.js?v=20260810-ui"></script>
 </body>
 </html>
