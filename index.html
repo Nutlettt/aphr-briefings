@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>APHR Events</title>
-  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260810-ui">
 </head>
-<body>
+<body class="page-home">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="global-topbar">
   <nav class="global-breadcrumb" aria-label="Breadcrumb"><span class="crumb crumb-current">APHR Events</span></nav>
-  <button type="button" class="content-menu-button" data-site-nav-open="site-content-drawer" aria-label="Open contents" title="Contents" data-tooltip="Contents">
+  <button type="button" class="content-menu-button" data-site-nav-open="site-content-drawer" aria-controls="site-content-drawer" aria-expanded="false" aria-label="Open contents" data-tooltip="Contents">
     <span class="hamburger" aria-hidden="true"><span></span></span>
   </button>
 </div>
-  <div class="site-nav-shell" id="site-content-drawer" aria-hidden="true">
+  <div class="site-nav-shell" id="site-content-drawer" aria-hidden="true" inert>
   <div class="site-nav-backdrop" data-site-nav-close></div>
   <aside class="site-nav-panel" role="dialog" aria-modal="true" aria-labelledby="site-nav-title">
     <div class="site-nav-header">
@@ -22,20 +23,20 @@
     </div>
     <nav class="site-toc-links"><a href="#overview" data-site-nav-close>Overview</a>
 <a href="#events" data-site-nav-close>Events</a>
-<a href="#site-footer" data-site-nav-close>Credits</a></nav>
+<a href="#acknowledgments" data-site-nav-close>Acknowledgments</a></nav>
   </aside>
 </div>
   <div class="site-shell">
-    <main class="site-main">
-      <div class="brand-strip" aria-label="Project partner logos">
-  <a class="brand-logo" href="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/NSF-and-STEER.png" target="_blank" rel="noopener">
-    <img src="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/NSF-and-STEER.png" alt="NSF and StEER logo">
+    <main class="site-main" id="main-content">
+      <div class="brand-strip" role="group" aria-label="Research affiliations and supporters">
+  <a class="brand-logo brand-logo-nsf-steer" href="https://www.steer.network/" target="_blank" rel="noopener" aria-label="Visit the StEER Network website">
+    <img src="assets/images/nsf-steer.png" width="542" height="134" alt="National Science Foundation and StEER Network">
   </a>
-  <a class="brand-logo brand-logo-peer" href="https://cdn.jsdelivr.net/gh/Nutlettt/logo-for-webs-dev@main/PEER-logo.svg" target="_blank" rel="noopener">
-    <img src="https://cdn.jsdelivr.net/gh/Nutlettt/logo-for-webs-dev@main/PEER-logo.svg" alt="PEER logo">
+  <a class="brand-logo brand-logo-peer" href="https://peer.berkeley.edu/" target="_blank" rel="noopener" aria-label="Visit the Pacific Earthquake Engineering Research Center website">
+    <img src="assets/images/peer-logo.svg" width="95" height="96" alt="Pacific Earthquake Engineering Research Center">
   </a>
-  <a class="brand-logo" href="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/cropped-stairlab-slogan.png" target="_blank" rel="noopener">
-    <img src="https://raw.githubusercontent.com/Nutlettt/logo-for-webs-dev/main/cropped-stairlab-slogan.png" alt="STAIRLab logo">
+  <a class="brand-logo brand-logo-stairlab" href="https://stairlab.berkeley.edu/" target="_blank" rel="noopener" aria-label="Visit the STAIRLab website">
+    <img src="assets/images/stairlab.png" width="1535" height="226" alt="STAIRLab">
   </a>
 </div>
 
@@ -44,16 +45,10 @@
         <p class="site-subtitle">Preliminary automated post-hazard reconnaissance (APHR) briefings, organized by event and snapshot time for rapid situational awareness and expert review.</p>
       </header>
 
-      <div class="site-counter" aria-label="Site visit counter" hidden>
-        <span>Site visits:</span>
-        <img
-          src="https://api.visitorbadge.io/api/visitors?path=k-mosalam.github.io%2Faphr-briefings&label=&countColor=%23263759"
-          onload="this.closest('.site-counter').hidden = false"
-          onerror="this.closest('.site-counter').hidden = true"
-          alt="Site visit counter">
-      </div>
-
-      <section class="timeline-section" id="events" aria-label="APHR event timeline">
+      <section class="timeline-section" id="events" aria-labelledby="event-activity-title">
+        <div class="section-heading">
+          <h2 id="event-activity-title">Event activity</h2>
+        </div>
         <div class="timeline-list event-timeline">
         <article class="timeline-item event-timeline-item">
         <div class="timeline-index" aria-hidden="true">
@@ -62,7 +57,7 @@
         </div>
         <div class="timeline-body">
           <div class="timeline-kicker">Earthquake · Snapshot briefing</div>
-          <h2 class="timeline-title">2026 Uto–Kumamoto (Kyushu), Japan</h2>
+          <h3 class="timeline-title">2026 Uto–Kumamoto (Kyushu), Japan</h3>
           <div class="timeline-meta"><span>M6.8</span>
 <span>Jul 28, 2026 16:27 JST</span>
 <span>32 sources</span>
@@ -78,7 +73,7 @@
         </div>
         <div class="timeline-body">
           <div class="timeline-kicker">Earthquake · Snapshot briefing</div>
-          <h2 class="timeline-title">2026 Redwood Valley, California</h2>
+          <h3 class="timeline-title">2026 Redwood Valley, California</h3>
           <div class="timeline-meta"><span>M5.59</span>
 <span>June 24, 2026</span>
 <span>22 sources</span>
@@ -94,7 +89,7 @@
         </div>
         <div class="timeline-body">
           <div class="timeline-kicker">Earthquake · Snapshot briefing</div>
-          <h2 class="timeline-title">2026 Yumare, Venezuela</h2>
+          <h3 class="timeline-title">2026 Yumare, Venezuela</h3>
           <div class="timeline-meta"><span>M7.5</span>
 <span>June 24, 2026</span>
 <span>1 snapshot</span></div>
@@ -109,7 +104,7 @@
         </div>
         <div class="timeline-body">
           <div class="timeline-kicker">Earthquake · Temporal analysis</div>
-          <h2 class="timeline-title">2026 Kablalan, Philippines</h2>
+          <h3 class="timeline-title">2026 Kablalan, Philippines</h3>
           <div class="timeline-meta"><span>M7.8</span>
 <span>June 8, 2026</span>
 <span>12 snapshots · Temporal analysis</span></div>
@@ -124,7 +119,7 @@
         </div>
         <div class="timeline-body">
           <div class="timeline-kicker">Earthquake · Snapshot briefing</div>
-          <h2 class="timeline-title">2024 Noto Peninsula, Japan</h2>
+          <h3 class="timeline-title">2024 Noto Peninsula, Japan</h3>
           <div class="timeline-meta"><span>M7.5</span>
 <span>Jan 1, 2024</span>
 <span>31 sources</span>
@@ -135,11 +130,57 @@
         </div>
       </section>
 
+      <section class="acknowledgments-section" id="acknowledgments" aria-labelledby="acknowledgments-title">
+        <header class="acknowledgments-header">
+          <h2 id="acknowledgments-title">Acknowledgments</h2>
+        </header>
+
+        <ul class="acknowledgments-list">
+          <li class="acknowledgment-row">
+            <p class="acknowledgment-title">Research support</p>
+            <p class="acknowledgment-copy">
+              Supported by the <a href="https://www.steer.network/">StEER Network</a>
+              through the <a href="https://www.nsf.gov/">National Science Foundation</a>
+              under Grant No. CMMI 2103550, and by the Taisei Chair of Civil
+              Engineering at UC Berkeley.
+            </p>
+          </li>
+
+          <li class="acknowledgment-row">
+            <a class="newscatcher-logo" href="https://www.newscatcherapi.com/" aria-label="Visit the NewsCatcher website">
+              <img
+                src="assets/images/newscatcher-black.png"
+                width="1426"
+                height="173"
+                loading="lazy"
+                decoding="async"
+                alt="NewsCatcher">
+            </a>
+            <div class="newscatcher-copy">
+              <p class="acknowledgment-title">Academic news access</p>
+              <p class="acknowledgment-copy">
+                APHR uses the NewsCatcher News API for timely, source-attributed
+                news discovery. We gratefully acknowledge the NewsCatcher team
+                for providing the academic API access that supports this research.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
       <footer class="site-footer" id="site-footer">
-        Khalid M. Mosalam and Guanren Zhou · University of California, Berkeley
+        <p class="site-footer-credit">Khalid M. Mosalam and Guanren Zhou · University of California, Berkeley</p>
+        <div class="site-counter" aria-label="Site visit counter" hidden>
+          <span>Site visits:</span>
+          <img
+            src="https://api.visitorbadge.io/api/visitors?path=k-mosalam.github.io%2Faphr-briefings&amp;label=&amp;countColor=%23263759"
+            onload="this.closest('.site-counter').hidden = false"
+            onerror="this.closest('.site-counter').hidden = true"
+            alt="Site visit counter">
+        </div>
       </footer>
     </main>
   </div>
-  <script src="assets/js/site.js"></script>
+  <script src="assets/js/site.js?v=20260810-ui"></script>
 </body>
 </html>
