@@ -31,7 +31,7 @@
 
 .title-product {
   display: block;
-  color: var(--teal);
+  color: var(--accent-fg);
   font-size: 15px;
   font-weight: 600;
   line-height: 1.4;
@@ -76,6 +76,12 @@
   .header-times {
     justify-content: flex-start;
   }
+
+  .aphr-report .no-content {
+    padding: 10px 12px;
+    background: var(--canvas-subtle);
+    border-left: 3px solid var(--border-default);
+  }
 }
 
 .aphr-report {
@@ -98,7 +104,7 @@
 .aphr-report h2 {
   margin: 0 0 18px;
   padding-bottom: 9px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-default);
   color: var(--ink);
   font-size: 24px;
   font-weight: 600;
@@ -116,7 +122,7 @@
 
 .aphr-report p {
   margin: 0 0 12px;
-  max-width: 80ch;
+  max-width: 74ch;
   font-size: 15px;
   font-weight: 400;
   line-height: 1.65;
@@ -135,7 +141,7 @@
 }
 
 .aphr-report .citation {
-  color: var(--teal);
+  color: var(--accent-fg);
   cursor: pointer;
   font-size: 0.78em;
   font-weight: 600;
@@ -143,7 +149,7 @@
 }
 
 .aphr-report a {
-  color: var(--teal);
+  color: var(--accent-fg);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
@@ -157,17 +163,17 @@
 .aphr-report .citation:focus-visible,
 .drawer-trigger:focus-visible,
 .drawer-close:focus-visible {
-  outline: 2px solid var(--teal);
+  outline: 2px solid var(--accent-border-emphasis);
   outline-offset: 2px;
 }
 
 .aphr-report .intensity-map {
   margin: 22px 0 16px;
-  padding: 12px;
+  padding: 0;
   overflow: hidden;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .aphr-report .intensity-map img {
@@ -192,9 +198,9 @@
 .aphr-report .pager-estimates {
   margin: 22px 0;
   padding: 14px 16px;
-  background: var(--amber-soft);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--amber);
+  background: var(--attention-bg-subtle);
+  border: 1px solid var(--attention-border-muted);
+  border-left: 4px solid var(--attention-fg);
   border-radius: 0 6px 6px 0;
   color: var(--ink);
 }
@@ -221,8 +227,8 @@
   height: auto;
   max-height: 320px;
   object-fit: contain;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: transparent;
+  border: 1px solid var(--border-default);
   border-radius: 6px;
 }
 
@@ -239,9 +245,15 @@
   padding: 10px 0;
   overflow-wrap: anywhere;
   background: transparent;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-muted);
   color: var(--ink);
   line-height: 1.5;
+  transition: background-color 120ms ease;
+}
+
+.aphr-report .reference-list li:hover,
+.aphr-report .reference-list li:focus-within {
+  background: var(--canvas-subtle);
 }
 
 .aphr-report .reference-list li:first-child {
@@ -253,7 +265,7 @@
 }
 
 .aphr-report .ref-num {
-  color: var(--teal);
+  color: var(--accent-fg);
   font-weight: 600;
 }
 
@@ -262,7 +274,7 @@
 }
 
 .aphr-report .ref-link {
-  color: var(--teal);
+  color: var(--accent-fg);
 }
 
 .aphr-reference-highlight {
@@ -317,15 +329,15 @@
 
 .aphr-temporal-recon figure {
   margin: 0;
-  padding: 10px;
+  padding: 0;
   overflow: hidden;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
 }
 
 .aphr-temporal-recon .introduction figure {
-  padding: 10px;
+  padding: 0;
 }
 
 .aphr-temporal-recon img {
@@ -354,12 +366,22 @@
 
 .aphr-temporal-recon .pager-summary,
 .aphr-temporal-recon .metric-summary {
+  max-width: none;
   padding: 14px 16px;
-  background: var(--amber-soft);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--amber);
   border-radius: 0 6px 6px 0;
   color: var(--ink);
+}
+
+.aphr-temporal-recon .pager-summary {
+  background: var(--attention-bg-subtle);
+  border: 1px solid var(--attention-border-muted);
+  border-left: 4px solid var(--attention-fg);
+}
+
+.aphr-temporal-recon .metric-summary {
+  background: var(--canvas-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
 }
 
 .aphr-temporal-recon .detail-stack {
@@ -385,8 +407,8 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: var(--border-muted);
+  border: 1px solid var(--border-default);
   border-radius: 6px;
 }
 
@@ -400,8 +422,16 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 16px;
-  background: var(--panel);
+  background: var(--canvas-default);
   border: 0;
+}
+
+.aphr-temporal-recon .metric-card {
+  background: var(--canvas-default);
+}
+
+.aphr-temporal-recon .references-card {
+  background: var(--canvas-subtle);
 }
 
 .aphr-temporal-recon .info-card h4 {
@@ -427,8 +457,8 @@
   appearance: none;
   margin-top: auto;
   padding: 6px 10px;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: var(--canvas-default);
+  border: 1px solid var(--border-default);
   border-radius: 6px;
   color: var(--ink);
   cursor: pointer;
@@ -438,12 +468,13 @@
 }
 
 .aphr-temporal-recon .drawer-trigger:hover {
-  background: var(--soft);
-  border-color: var(--muted);
+  background: var(--canvas-inset);
+  border-color: var(--border-strong);
+  color: var(--accent-fg);
 }
 
 .aphr-temporal-recon .references > .info-card {
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-default);
   border-radius: 6px;
 }
 
@@ -456,7 +487,7 @@
 .aphr-temporal-recon .timeline li {
   position: relative;
   padding: 0 0 20px 20px;
-  border-left: 1px solid var(--line);
+  border-left: 1px solid var(--border-muted);
 }
 
 .aphr-temporal-recon .timeline li:last-child {
@@ -470,10 +501,16 @@
   left: -5px;
   width: 9px;
   height: 9px;
-  background: var(--panel);
-  border: 2px solid var(--teal);
+  background: var(--canvas-default);
+  border: 2px solid var(--accent-border-muted);
   border-radius: 50%;
   content: "";
+}
+
+.aphr-temporal-recon .timeline li:last-child::before {
+  background: var(--accent-fg);
+  border-color: var(--accent-fg);
+  box-shadow: 0 0 0 3px var(--canvas-default);
 }
 
 .aphr-temporal-recon time {
@@ -488,10 +525,10 @@
   display: inline-block;
   margin-right: 8px;
   padding: 2px 6px;
-  background: var(--teal-soft);
-  border: 1px solid var(--line);
+  background: transparent;
+  border: 1px solid var(--border-default);
   border-radius: 4px;
-  color: var(--teal);
+  color: var(--muted);
   font-size: 12px;
   font-weight: 500;
 }
@@ -499,10 +536,10 @@
 .aphr-temporal-recon .caveat {
   display: inline-block;
   padding: 3px 7px;
-  background: var(--amber-soft);
-  border: 1px solid var(--line);
+  background: var(--attention-bg-subtle);
+  border: 1px solid var(--attention-border-muted);
   border-radius: 4px;
-  color: var(--amber);
+  color: var(--attention-fg);
   font-size: 12px;
   font-weight: 500;
 }
@@ -512,11 +549,11 @@
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-default);
   border-collapse: separate;
   border-radius: 6px;
   border-spacing: 0;
-  background: var(--panel);
+  background: var(--canvas-default);
   font-size: 13px;
   -webkit-overflow-scrolling: touch;
 }
@@ -526,15 +563,26 @@
   min-width: 120px;
   padding: 9px 10px;
   border: 0;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--border-muted);
+  border-bottom: 1px solid var(--border-muted);
   text-align: left;
+  transition: background-color 120ms ease;
   vertical-align: top;
 }
 
 .aphr-temporal-recon th {
-  background: var(--soft);
+  background: var(--canvas-inset);
   font-weight: 600;
+}
+
+@media screen {
+  .aphr-temporal-recon tbody tr:nth-child(even) td {
+    background: var(--canvas-subtle);
+  }
+
+  .aphr-temporal-recon tbody tr:hover td {
+    background: var(--canvas-inset);
+  }
 }
 
 .aphr-temporal-recon tr > :last-child {
@@ -594,8 +642,8 @@
   width: min(560px, 100vw);
   height: 100dvh;
   flex-direction: column;
-  background: var(--panel);
-  border-left: 1px solid var(--line);
+  background: var(--canvas-default);
+  border-left: 1px solid var(--border-default);
   transform: translateX(calc(100% + 48px));
   transition: transform 160ms ease;
 }
@@ -611,8 +659,8 @@
   justify-content: space-between;
   gap: 16px;
   padding: 16px 20px;
-  background: var(--panel);
-  border-bottom: 1px solid var(--line);
+  background: var(--canvas-subtle);
+  border-bottom: 1px solid var(--border-default);
 }
 
 .drawer-header h2 {
@@ -627,8 +675,8 @@
   flex: 0 0 auto;
   width: 34px;
   height: 34px;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: var(--canvas-default);
+  border: 1px solid var(--border-default);
   border-radius: 6px;
   color: var(--ink);
   cursor: pointer;
@@ -638,7 +686,7 @@
 }
 
 .drawer-close:hover {
-  background: var(--soft);
+  background: var(--canvas-inset);
 }
 
 .drawer-body {
@@ -647,18 +695,18 @@
 }
 
 .drawer-summary {
+  max-width: none;
   margin: 0 0 20px;
   padding: 12px 14px;
-  background: var(--teal-soft);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--teal);
-  border-radius: 0 6px 6px 0;
+  background: var(--canvas-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: 6px;
   color: var(--ink);
 }
 
 @keyframes aphrefade {
   0% {
-    background: var(--amber-soft);
+    background: var(--accent-bg-subtle);
   }
   100% {
     background: transparent;
@@ -759,19 +807,6 @@
     border: 0;
     break-after: avoid;
     page-break-after: avoid;
-  }
-
-  .report-header::after {
-    width: 100%;
-    height: 0.75pt;
-    margin: 0.16in auto 0;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(188, 199, 195, 0.94) 7%,
-      rgba(188, 199, 195, 0.94) 93%,
-      transparent
-    );
   }
 
   .report-title {
@@ -933,12 +968,22 @@
   .drawer-summary {
     margin: 0.12in 0;
     padding: 0.08in 0.1in;
-    background: #f7f5ee;
     border: 0;
-    border-left: 3pt solid var(--print-amber);
     color: #30383b;
     break-inside: avoid;
     page-break-inside: avoid;
+  }
+
+  .aphr-report .pager-estimates,
+  .aphr-temporal-recon .pager-summary {
+    background: #f7f5ee;
+    border-left: 3pt solid var(--print-amber);
+  }
+
+  .aphr-temporal-recon .metric-summary,
+  .drawer-summary {
+    background: var(--print-soft);
+    border: 0.75pt solid var(--print-line);
   }
 
   .aphr-report .pager-images,
@@ -1080,11 +1125,6 @@
   .aphr-temporal-recon .pager-figures,
   .aphr-temporal-recon .card-grid {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .aphr-report .intensity-map,
-  .aphr-temporal-recon figure {
-    padding: 8px;
   }
 
   .aphr-report .pager-estimates,

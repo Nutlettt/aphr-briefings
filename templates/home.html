@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page_title }}</title>
-  <link rel="stylesheet" href="assets/css/site.css?v=20260810-ui">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260810-primer">
 </head>
 <body class="page-home">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -12,8 +12,6 @@
   {{ content_drawer }}
   <div class="site-shell">
     <main class="site-main" id="main-content">
-      {{ brand_strip }}
-
       <header class="site-header" id="overview">
         <h1 class="site-title">APHR Events</h1>
         <p class="site-subtitle">Preliminary automated post-hazard reconnaissance (APHR) briefings, organized by event and snapshot time for rapid situational awareness and expert review.</p>
@@ -64,6 +62,8 @@
             </div>
           </li>
         </ul>
+
+        {{ brand_strip }}
       </section>
 
       <footer class="site-footer" id="site-footer">
@@ -72,6 +72,7 @@
           <span>Site visits:</span>
           <img
             src="https://api.visitorbadge.io/api/visitors?path=k-mosalam.github.io%2Faphr-briefings&amp;label=&amp;countColor=%23263759"
+            referrerpolicy="no-referrer"
             onload="this.closest('.site-counter').hidden = false"
             onerror="this.closest('.site-counter').hidden = true"
             alt="Site visit counter">
@@ -79,6 +80,6 @@
       </footer>
     </main>
   </div>
-  <script src="assets/js/site.js?v=20260810-ui"></script>
+  <script src="assets/js/site.js?v=20260810-primer"></script>
 </body>
 </html>

@@ -276,7 +276,8 @@ def _product_sort_key(product: Dict[str, Any]) -> str:
 
 def _render_home_timeline(events: Iterable[Dict[str, Any]]) -> str:
     items = []
-    for event in sorted(events, key=_event_sort_key, reverse=True):
+    sorted_events = sorted(events, key=_event_sort_key, reverse=True)
+    for index, event in enumerate(sorted_events):
         slug = event["slug"]
         title = escape(str(event.get("title", slug)))
         tag = str(event.get("tag", event.get("event_type", "APHR event")))
@@ -305,9 +306,12 @@ def _render_home_timeline(events: Iterable[Dict[str, Any]]) -> str:
         if product_label:
             meta_bits.append(product_label)
         button = escape(str(event.get("button_label", "Open event briefing")))
+        item_class = "timeline-item event-timeline-item"
+        if index == 0:
+            item_class += " is-latest"
         items.append(
             f"""
-      <article class="timeline-item event-timeline-item">
+      <article class="{item_class}">
         <div class="timeline-index" aria-hidden="true">
           <div class="timeline-dot"></div>
           <div class="timeline-date">{timeline_date}</div>
@@ -341,8 +345,11 @@ def _render_product_timeline_item(event: Dict[str, Any], product: Dict[str, Any]
         snapshot_time or generated_at or product.get("title") or product.get("slug")
     )
     tag = _product_status_label(event, product)
+    item_class = "timeline-item product-timeline-item"
+    if slug == event.get("latest_product_slug"):
+        item_class += " is-latest"
     return f"""
-      <article class="timeline-item product-timeline-item">
+      <article class="{item_class}">
         <div class="timeline-index" aria-hidden="true">
           <div class="timeline-dot"></div>
           <div class="timeline-date">{timeline_date}</div>
@@ -377,8 +384,7 @@ def _render_temporal_feature(event: Dict[str, Any], products: Iterable[Dict[str,
         summary = escape(str(product.get("summary", "")))
         cards.append(
             f"""
-        <article class="featured-product">
-          <div class="featured-product-kicker">{escape(_product_status_label(event, product))}</div>
+        <article class="featured-product is-temporal">
           <h3>{title}</h3>
           <div class="timeline-meta">{_compact_meta_bits(*meta_bits)}</div>
           {f'<p>{summary}</p>' if summary else ''}
@@ -474,7 +480,6 @@ def _build_product_page(event: Dict[str, Any], product: Dict[str, Any]) -> None:
                 )
             ),
             "content_drawer": _render_content_drawer(_product_toc(manifest)),
-            "brand_strip": _render_brand_strip("../../../../"),
             "product_type": escape(product_type),
             "event_title": escape(str(event.get("title", manifest.get("event_title", "")))),
             "product_title": escape(product_title),
@@ -517,7 +522,6 @@ def _build_event_page(event: Dict[str, Any]) -> None:
                 )
             ),
             "content_drawer": _render_content_drawer(drawer_links),
-            "brand_strip": _render_brand_strip("../../"),
             "event_type": escape(str(event.get("event_type", "APHR event"))),
             "event_title": escape(str(event.get("title", event["slug"]))),
             "event_description": escape(_event_meta_text(event)),
