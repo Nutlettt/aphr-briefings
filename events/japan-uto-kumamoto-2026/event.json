@@ -21,7 +21,21 @@
       "summary": "System-generated APHR snapshot briefing based on 293 filtered articles, citing 41 of 402 candidate facts across 32 references.",
       "manifest_path": "products/snapshot-20260801/manifest.json",
       "snapshot_time": "2026-08-01T05:23:10Z"
+    },
+    {
+      "slug": "snapshot-20260804-000000z",
+      "title": "Snapshot briefing · Aug 4, 2026",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-08-14T07:22:06.725825Z",
+      "counts": {
+        "facts_cited": 62,
+        "facts_total": 356,
+        "sources": 43
+      },
+      "summary": "Website-ready APHR snapshot briefing with 43 sources and 62/356 cited facts.",
+      "manifest_path": "products/snapshot-20260804-000000z/manifest.json",
+      "snapshot_time": "2026-08-04T00:00:00Z"
     }
   ],
-  "latest_product_slug": "snapshot-20260801"
+  "latest_product_slug": "snapshot-20260804-000000z"
 }

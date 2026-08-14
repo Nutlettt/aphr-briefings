@@ -1,0 +1,62 @@
+{
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "building",
+      "title": "Building Damage"
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure Impact"
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience and Recovery"
+    },
+    {
+      "id": "references",
+      "title": "References"
+    }
+  ],
+  "bundle_type": "aphr_web_product",
+  "event_title": "Kumamoto Region, Japan",
+  "content_path": "content.html",
+  "event_date": "2026-07-28",
+  "schema_version": "1.0",
+  "product_type": "snapshot_briefing",
+  "generated_at": "2026-08-14T07:22:06.725825Z",
+  "counts": {
+    "facts_cited": 62,
+    "facts_total": 356,
+    "sources": 43
+  },
+  "title": "Kumamoto Region, Japan",
+  "assets": {
+    "intensity_image": "assets/intensity.jpg",
+    "pager_images": [
+      "assets/pager_1.png",
+      "assets/pager_2.png"
+    ]
+  },
+  "evidence": {
+    "package_id": "pkg_37fcdf984b63a274f0ac4dd28e579d640e0fc4b007512491c2e71539567b15c9",
+    "schema_version": "1.0",
+    "event_context_hash": "60fcf7d99dfa7d275e70aedb6d0cd9742ce5c66c32f3f0413f49ad56dcc275d4"
+  },
+  "event": {
+    "event_id": "us6000tgb9",
+    "event_context_hash": "60fcf7d99dfa7d275e70aedb6d0cd9742ce5c66c32f3f0413f49ad56dcc275d4"
+  },
+  "snapshot": {
+    "event_id": "us6000tgb9",
+    "run_id": "us6000tgb9__20260804T000000Z",
+    "snapshot_id": "us6000tgb9__20260804T000000Z",
+    "snapshot_time": "2026-08-04T00:00:00Z",
+    "status": "completed"
+  },
+  "event_slug": "japan-uto-kumamoto-2026",
+  "product_slug": "snapshot-20260804-000000z"
+}
