@@ -1,0 +1,36 @@
+{
+  "content_path": "content.html",
+  "event_date": "2026-08-02",
+  "event_title": "APHR Staging Contract Test",
+  "product_type": "snapshot_briefing",
+  "counts": {
+    "sources": 2,
+    "facts_cited": 3,
+    "facts_total": 3
+  },
+  "schema_version": "1.0",
+  "generated_at": "2026-08-02T08:05:00Z",
+  "title": "APHR Staging Contract Test",
+  "bundle_type": "aphr_web_product",
+  "assets": {
+    "pager_images": []
+  },
+  "evidence": {
+    "package_id": "pkg-fixture-20260802",
+    "schema_version": "1.0",
+    "event_context_hash": "6ca0448ff82e71e2b9c37e105653680cf7319d8f9029a6ed75a703d12c6db6a0"
+  },
+  "event": {
+    "event_id": "us-fixture",
+    "event_context_hash": "6ca0448ff82e71e2b9c37e105653680cf7319d8f9029a6ed75a703d12c6db6a0"
+  },
+  "snapshot": {
+    "event_id": "us-fixture",
+    "run_id": "us-fixture__20260802T080000Z",
+    "snapshot_id": "us-fixture__20260802T080000Z",
+    "snapshot_time": "2026-08-02T08:00:00Z",
+    "status": "completed"
+  },
+  "event_slug": "aphr-staging-contract-2026",
+  "product_slug": "snapshot-20260802-080000z"
+}

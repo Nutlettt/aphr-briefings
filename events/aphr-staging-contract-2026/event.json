@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "aphr-staging-contract-2026",
+  "title": "APHR Staging Contract Test",
+  "event_type": "Earthquake",
+  "event_date": "2026-08-02",
+  "tag": "Snapshot briefing",
+  "meta": "2026-08-02 · 2 sources · 3/3 facts cited",
+  "description": "Automated APHR products for APHR Staging Contract Test.",
+  "products": [
+    {
+      "slug": "snapshot-20260802-080000z",
+      "title": "Snapshot briefing · Aug 2, 2026 08:00 UTC",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-08-02T08:05:00Z",
+      "counts": {
+        "sources": 2,
+        "facts_cited": 3,
+        "facts_total": 3
+      },
+      "summary": "Website-ready APHR snapshot briefing with 2 sources and 3/3 cited facts.",
+      "manifest_path": "products/snapshot-20260802-080000z/manifest.json",
+      "snapshot_time": "2026-08-02T08:00:00Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20260802-080000z"
+}
