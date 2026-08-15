@@ -4,8 +4,9 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 import json
+import re
 import shutil
 from pathlib import Path
 from typing import Any, Dict, List
@@ -13,6 +14,7 @@ from typing import Any, Dict, List
 from build_site import build_site
 
 ROOT = Path(__file__).resolve().parents[1]
+_SLUG_PATTERN = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 
 
 def _parse_args(argv=None) -> argparse.Namespace:
@@ -30,7 +32,6 @@ def _parse_args(argv=None) -> argparse.Namespace:
     parser.add_argument("--product-summary", default=None, help="Short product-card summary.")
     parser.add_argument("--set-latest", action="store_true", help="Make this the latest product.")
     parser.add_argument("--build", action="store_true", help="Rebuild static pages after publishing.")
-    parser.add_argument("--force", action="store_true", help="Overwrite an existing product directory.")
     return parser.parse_args(argv)
 
 
@@ -43,15 +44,42 @@ def _write_json(path: Path, data: Dict[str, Any]) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def _copy_bundle(bundle_dir: Path, destination: Path, force: bool) -> None:
+def _validate_slug(value: str, label: str) -> str:
+    if not _SLUG_PATTERN.fullmatch(value):
+        raise ValueError(
+            f"{label} must contain lowercase letters, digits, and single hyphens"
+        )
+    return value
+
+
+def _resolve_descendant(root: Path, *parts: str) -> Path:
+    resolved_root = root.resolve()
+    candidate = resolved_root.joinpath(*parts).resolve()
+    try:
+        candidate.relative_to(resolved_root)
+    except ValueError as exc:
+        raise ValueError(f"Publication path escapes {resolved_root}: {candidate}") from exc
+    return candidate
+
+
+def _product_destination(event_slug: str, product_slug: str) -> tuple[Path, Path]:
+    event_slug = _validate_slug(event_slug, "event_slug")
+    product_slug = _validate_slug(product_slug, "product_slug")
+    events_root = _resolve_descendant(ROOT, "events")
+    event_dir = _resolve_descendant(events_root, event_slug)
+    product_dir = _resolve_descendant(event_dir, "products", product_slug)
+    return event_dir, product_dir
+
+
+def _copy_bundle(bundle_dir: Path, destination: Path) -> None:
     if not (bundle_dir / "content.html").exists():
         raise FileNotFoundError(f"Missing content.html in bundle: {bundle_dir}")
     if not (bundle_dir / "manifest.json").exists():
         raise FileNotFoundError(f"Missing manifest.json in bundle: {bundle_dir}")
     if destination.exists():
-        if not force:
-            raise FileExistsError(f"Product directory exists: {destination}. Use --force.")
-        shutil.rmtree(destination)
+        raise FileExistsError(
+            f"Product directory exists: {destination}. Publish corrections under a new slug."
+        )
 
     destination.mkdir(parents=True)
     shutil.copy2(bundle_dir / "content.html", destination / "content.html")
@@ -92,10 +120,17 @@ def _format_month_day_year(value: datetime) -> str:
     return f"{value.strftime('%b')} {value.day}, {value.year}"
 
 
+def _normalize_aware_datetime(value: datetime) -> datetime:
+    if value.tzinfo is not None:
+        return value.astimezone(timezone.utc)
+    return value
+
+
 def _format_datetime_label(value: Any) -> str:
     parsed = _parse_datetime(value)
     if not parsed:
         return str(value or "")
+    parsed = _normalize_aware_datetime(parsed)
     if parsed.hour == 0 and parsed.minute == 0 and parsed.second == 0:
         return _format_month_day_year(parsed)
     zone = " UTC" if parsed.tzinfo else ""
@@ -105,7 +140,7 @@ def _format_datetime_label(value: Any) -> str:
 def _sort_datetime(value: Any) -> str:
     parsed = _parse_datetime(value)
     if parsed:
-        return parsed.isoformat()
+        return _normalize_aware_datetime(parsed).isoformat()
     return str(value or "")
 
 
@@ -199,9 +234,10 @@ def publish(args: argparse.Namespace) -> Path:
     bundle_dir = Path(args.bundle)
     source_manifest = _read_json(bundle_dir / "manifest.json")
 
-    event_dir = ROOT / "events" / args.event_slug
-    product_dir = event_dir / "products" / args.product_slug
-    _copy_bundle(bundle_dir, product_dir, force=args.force)
+    event_dir, product_dir = _product_destination(
+        args.event_slug, args.product_slug
+    )
+    _copy_bundle(bundle_dir, product_dir)
 
     manifest_path = product_dir / "manifest.json"
     manifest = _read_json(manifest_path)
