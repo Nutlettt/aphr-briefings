@@ -1,4 +1,0 @@
-interface:
-  display_name: "Site Change Review"
-  short_description: "Review APHR static-site changes before handoff"
-  default_prompt: "Use $site-change-review to rebuild and review this APHR Briefings presentation change."
