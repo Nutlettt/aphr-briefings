@@ -29,9 +29,9 @@ Do not duplicate that changing state in this repository.
 
 Do not edit generated pages or imported bundle contents to make a presentation
 change. A correction to a product already present on a shared branch must use a
-new product slug. Use `publish_product.py --force` only to replace an
-unpublished local import before it enters shared history, never as a normal
-rerun or a published-product correction.
+new product slug. The publisher never replaces an existing product directory;
+remove a mistaken unpublished local import manually only after confirming it
+has not entered shared history.
 
 ## Local development
 

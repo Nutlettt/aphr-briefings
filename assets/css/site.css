@@ -374,10 +374,10 @@ textarea {
 
 .brand-strip {
   display: grid;
-  grid-template-columns: 260px 64px 380px;
+  grid-template-columns: minmax(0, 260px) minmax(48px, 64px) minmax(0, 380px);
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-3);
+  gap: clamp(16px, 3vw, var(--space-3));
   margin-top: var(--space-1);
   padding: var(--space-3) 0 var(--space-1);
   border-top: 1px solid var(--line-muted);
@@ -999,7 +999,7 @@ textarea {
   }
 
   .brand-strip {
-    grid-template-columns: 240px 56px 340px;
+    grid-template-columns: minmax(0, 240px) 56px minmax(0, 340px);
     gap: 20px;
     padding-top: var(--space-3);
   }
@@ -1111,7 +1111,7 @@ textarea {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 708px) {
   .brand-strip {
     grid-template-columns: minmax(0, 232px) 56px;
     justify-content: start;

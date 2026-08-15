@@ -16,8 +16,8 @@ automated Git delivery belong elsewhere.
 - Preserve legacy and standalone pages unless the task explicitly migrates
   them.
 
-Never use `publish_product.py --force` for a presentation change or to correct
-a published product. Publish a corrected result under a new slug.
+The publisher never replaces an existing product directory. Publish a corrected
+result under a new slug.
 
 ## Working method
 
