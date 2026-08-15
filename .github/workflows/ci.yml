@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Check Python syntax
+        run: python -m compileall -q tools
+
+      - name: Build static site
+        run: python tools/build_site.py
+
+      - name: Check generated pages
+        run: |
+          git diff --check
+          git diff --exit-code
+          git status --short
+          test -z "$(git status --porcelain --untracked-files=all)"
