@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "3-km-n-of-san-leandro-ca-2026-nc75417557-89163e5e",
+  "title": "2026 San Leandro, California",
+  "event_type": "Earthquake",
+  "event_date": "2026-08-13",
+  "tag": "Snapshot briefing",
+  "meta": "2026-08-13 · 7 sources · 9/25 facts cited",
+  "description": "Automated APHR products for 2026 San Leandro, California.",
+  "products": [
+    {
+      "slug": "snapshot-20260817-050000z-curated-v1",
+      "title": "Snapshot briefing · Aug 17, 2026 05:00 UTC",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-08-17T09:00:00Z",
+      "counts": {
+        "facts_cited": 9,
+        "facts_total": 25,
+        "sources": 7
+      },
+      "summary": "Website-ready APHR snapshot briefing with 7 sources and 9/25 cited facts.",
+      "manifest_path": "products/snapshot-20260817-050000z-curated-v1/manifest.json",
+      "snapshot_time": "2026-08-17T05:00:00Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20260817-050000z-curated-v1"
+}

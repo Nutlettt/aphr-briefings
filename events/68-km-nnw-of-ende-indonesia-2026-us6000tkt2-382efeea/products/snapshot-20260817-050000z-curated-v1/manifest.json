@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-08-17T09:00:00Z",
+  "title": "68 km NNW of Ende, Indonesia",
+  "assets": {
+    "intensity_image": "assets/intensity.jpg",
+    "pager_images": [
+      "assets/pager_1.png",
+      "assets/pager_2.png"
+    ]
+  },
+  "schema_version": "1.0",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "building",
+      "title": "Building Damage"
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure Impact"
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience and Recovery"
+    },
+    {
+      "id": "references",
+      "title": "References"
+    }
+  ],
+  "product_type": "snapshot_briefing",
+  "event_title": "2026 Ende–Flores, Indonesia",
+  "bundle_type": "aphr_web_product",
+  "counts": {
+    "facts_cited": 45,
+    "facts_total": 45,
+    "sources": 32
+  },
+  "content_path": "content.html",
+  "event_date": "2026-08-15",
+  "evidence": {
+    "package_id": "pkg_8feb4bd4085c10ee187855012eb28c011d5c4a1b2e29bc59a1106fd30f63b993",
+    "schema_version": "1.0",
+    "event_context_hash": "bbc231cdbc6b1db23a30d9f5e81b323a8279aeac753f73e04ce6b558557e1942"
+  },
+  "event": {
+    "event_id": "us6000tkt2",
+    "event_context_hash": "bbc231cdbc6b1db23a30d9f5e81b323a8279aeac753f73e04ce6b558557e1942"
+  },
+  "snapshot": {
+    "event_id": "us6000tkt2",
+    "run_id": "us6000tkt2__20260817T050000Z__curated-v1",
+    "snapshot_id": "us6000tkt2__20260817T050000Z__curated-v1",
+    "snapshot_time": "2026-08-17T05:00:00Z",
+    "status": "completed"
+  },
+  "event_slug": "68-km-nnw-of-ende-indonesia-2026-us6000tkt2-382efeea",
+  "product_slug": "snapshot-20260817-050000z-curated-v1"
+}

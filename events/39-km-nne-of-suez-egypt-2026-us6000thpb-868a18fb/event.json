@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "39-km-nne-of-suez-egypt-2026-us6000thpb-868a18fb",
+  "title": "2026 Suez, Egypt",
+  "event_type": "Earthquake",
+  "event_date": "2026-08-03",
+  "tag": "Snapshot briefing",
+  "meta": "2026-08-03 · 16 sources · 18/18 facts cited",
+  "description": "Automated APHR products for 2026 Suez, Egypt.",
+  "products": [
+    {
+      "slug": "snapshot-20260817-050000z-curated-v1",
+      "title": "Snapshot briefing · Aug 17, 2026 05:00 UTC",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-08-17T09:00:00Z",
+      "counts": {
+        "facts_cited": 18,
+        "facts_total": 18,
+        "sources": 16
+      },
+      "summary": "Website-ready APHR snapshot briefing with 16 sources and 18/18 cited facts.",
+      "manifest_path": "products/snapshot-20260817-050000z-curated-v1/manifest.json",
+      "snapshot_time": "2026-08-17T05:00:00Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20260817-050000z-curated-v1"
+}
