@@ -110,7 +110,7 @@ CMMI 2103550 and by the Taisei Chair of Civil Engineering at the University of
 California, Berkeley.
 
 <a href="https://www.newscatcherapi.com/">
-  <img src="assets/images/newscatcher-black.png" width="280" alt="NewsCatcher">
+  <img src="assets/images/nc-logo_base_b.png" width="280" alt="NewsCatcher">
 </a>
 
 APHR's textual evidence pipeline uses the NewsCatcher News API to discover and
