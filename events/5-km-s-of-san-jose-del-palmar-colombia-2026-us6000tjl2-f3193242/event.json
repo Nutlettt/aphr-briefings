@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "5-km-s-of-san-jose-del-palmar-colombia-2026-us6000tjl2-f3193242",
+  "title": "2026 San José del Palmar, Colombia",
+  "event_type": "Earthquake",
+  "event_date": "2026-08-10",
+  "tag": "Snapshot briefing",
+  "meta": "2026-08-10 · 33 sources · 46/44 facts cited",
+  "description": "Automated APHR products for 2026 San José del Palmar, Colombia.",
+  "products": [
+    {
+      "slug": "snapshot-20260817-050000z-curated-v1",
+      "title": "Snapshot briefing · Aug 17, 2026 05:00 UTC",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-08-17T09:00:00Z",
+      "counts": {
+        "facts_cited": 46,
+        "facts_total": 44,
+        "sources": 33
+      },
+      "summary": "Website-ready APHR snapshot briefing with 33 sources and 46/44 cited facts.",
+      "manifest_path": "products/snapshot-20260817-050000z-curated-v1/manifest.json",
+      "snapshot_time": "2026-08-17T05:00:00Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20260817-050000z-curated-v1"
+}
