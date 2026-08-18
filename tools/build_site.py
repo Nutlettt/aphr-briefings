@@ -4,13 +4,18 @@
 from __future__ import annotations
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 from html import escape
 from pathlib import Path
+import re
 from typing import Any, Dict, Iterable, List
 
 ROOT = Path(__file__).resolve().parents[1]
+_TEMPLATE_TOKEN = re.compile(r"{{\s*([a-z][a-z0-9_]*)\s*}}")
+_TEMPLATE_LINE = re.compile(
+    r"^[ \t]*{{\s*([a-z][a-z0-9_]*)\s*}}[ \t]*$", re.MULTILINE
+)
 
 
 def _render_brand_strip(asset_prefix: str = "") -> str:
@@ -40,9 +45,21 @@ def _write(path: Path, content: str) -> None:
 
 def _template(name: str, values: Dict[str, str]) -> str:
     text = (ROOT / "templates" / name).read_text(encoding="utf-8")
-    for key, value in values.items():
-        text = text.replace("{{ " + key + " }}", value)
-    return text
+
+    def remove_empty_line(match: re.Match[str]) -> str:
+        key = match.group(1)
+        if key in values and not values[key]:
+            return ""
+        return match.group(0)
+
+    def replace_token(match: re.Match[str]) -> str:
+        key = match.group(1)
+        if key not in values:
+            raise ValueError(f"Missing template value {key!r} for {name}")
+        return values[key]
+
+    text = _TEMPLATE_LINE.sub(remove_empty_line, text)
+    return _TEMPLATE_TOKEN.sub(replace_token, text)
 
 
 def _render_breadcrumb(crumbs: List[Dict[str, str]]) -> str:
@@ -149,7 +166,7 @@ def _parse_datetime(value: Any) -> datetime | None:
 def _sort_datetime(value: Any) -> str:
     parsed = _parse_datetime(value)
     if parsed:
-        return parsed.isoformat()
+        return _normalize_aware_datetime(parsed).isoformat()
     return str(value or "")
 
 
@@ -157,24 +174,38 @@ def _format_month_day_year(value: datetime) -> str:
     return f"{value.strftime('%b')} {value.day}, {value.year}"
 
 
+def _normalize_aware_datetime(value: datetime) -> datetime:
+    if value.tzinfo is not None:
+        return value.astimezone(timezone.utc)
+    return value
+
+
 def _format_date(value: Any) -> str:
     parsed = _parse_datetime(value)
     if parsed:
-        return _format_month_day_year(parsed)
+        return _format_month_day_year(_normalize_aware_datetime(parsed))
     return str(value or "")
 
 
 def _format_timeline_date(value: Any) -> str:
     parsed = _parse_datetime(value)
     if parsed:
+        parsed = _normalize_aware_datetime(parsed)
         return f"{parsed.strftime('%b')}<span>{parsed.day}, {parsed.year}</span>"
     return escape(str(value or ""))
+
+
+def _format_snapshot_timeline_date(value: Any) -> str:
+    if not value:
+        return "Time<span>unavailable</span>"
+    return _format_timeline_date(value)
 
 
 def _format_generated(value: Any) -> str:
     parsed = _parse_datetime(value)
     if not parsed:
         return str(value or "")
+    parsed = _normalize_aware_datetime(parsed)
     if parsed.hour == 0 and parsed.minute == 0 and parsed.second == 0:
         return _format_month_day_year(parsed)
     zone = " UTC" if parsed.tzinfo else ""
@@ -341,9 +372,7 @@ def _render_product_timeline_item(event: Dict[str, Any], product: Dict[str, Any]
         meta_bits.append(f"Sources: {stats['sources']}")
     if stats.get("facts_cited") is not None and stats.get("facts_total") is not None:
         meta_bits.append(f"Facts cited: {stats['facts_cited']}/{stats['facts_total']}")
-    timeline_date = _format_timeline_date(
-        snapshot_time or generated_at or product.get("title") or product.get("slug")
-    )
+    timeline_date = _format_snapshot_timeline_date(snapshot_time)
     tag = _product_status_label(event, product)
     item_class = "timeline-item product-timeline-item"
     if slug == event.get("latest_product_slug"):
