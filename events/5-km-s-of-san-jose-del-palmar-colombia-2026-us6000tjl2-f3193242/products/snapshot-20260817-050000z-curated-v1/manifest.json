@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-08-17T09:00:00Z",
+  "title": "5 km S of San José del Palmar, Colombia",
+  "assets": {
+    "intensity_image": "assets/intensity.jpg",
+    "pager_images": [
+      "assets/pager_1.png",
+      "assets/pager_2.png"
+    ]
+  },
+  "schema_version": "1.0",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "building",
+      "title": "Building Damage"
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure Impact"
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience and Recovery"
+    },
+    {
+      "id": "references",
+      "title": "References"
+    }
+  ],
+  "product_type": "snapshot_briefing",
+  "event_title": "2026 San José del Palmar, Colombia",
+  "bundle_type": "aphr_web_product",
+  "counts": {
+    "facts_cited": 46,
+    "facts_total": 44,
+    "sources": 33
+  },
+  "content_path": "content.html",
+  "event_date": "2026-08-10",
+  "evidence": {
+    "package_id": "pkg_9eb7c3156dbab591517352a68ec21083eef797c47a86f49829adb5e6ea1af3f6",
+    "schema_version": "1.0",
+    "event_context_hash": "99241e2837b31d06020a134ccd3a8cc465df0497588dffa02d37777db5009f43"
+  },
+  "event": {
+    "event_id": "us6000tjl2",
+    "event_context_hash": "99241e2837b31d06020a134ccd3a8cc465df0497588dffa02d37777db5009f43"
+  },
+  "snapshot": {
+    "event_id": "us6000tjl2",
+    "run_id": "us6000tjl2__20260817T050000Z__curated-v1",
+    "snapshot_id": "us6000tjl2__20260817T050000Z__curated-v1",
+    "snapshot_time": "2026-08-17T05:00:00Z",
+    "status": "completed"
+  },
+  "event_slug": "5-km-s-of-san-jose-del-palmar-colombia-2026-us6000tjl2-f3193242",
+  "product_slug": "snapshot-20260817-050000z-curated-v1"
+}

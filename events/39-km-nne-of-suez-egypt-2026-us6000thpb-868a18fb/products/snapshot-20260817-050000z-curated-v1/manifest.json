@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-08-17T09:00:00Z",
+  "title": "39 km NNE of Suez, Egypt",
+  "assets": {
+    "intensity_image": null,
+    "pager_images": []
+  },
+  "schema_version": "1.0",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "building",
+      "title": "Building Damage"
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure Impact"
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience and Recovery"
+    },
+    {
+      "id": "references",
+      "title": "References"
+    }
+  ],
+  "product_type": "snapshot_briefing",
+  "event_title": "2026 Suez, Egypt",
+  "bundle_type": "aphr_web_product",
+  "counts": {
+    "facts_cited": 18,
+    "facts_total": 18,
+    "sources": 16
+  },
+  "content_path": "content.html",
+  "event_date": "2026-08-03",
+  "evidence": {
+    "package_id": "pkg_a6896a1b457c52259e3d78530e4055cbb906d6c5c7d46cf3177e756e2951a8e8",
+    "schema_version": "1.0",
+    "event_context_hash": "2eea1230228f2a3035523268045f500b4a121f9d1f1d527687ee0bc5d1283946"
+  },
+  "event": {
+    "event_id": "us6000thpb",
+    "event_context_hash": "2eea1230228f2a3035523268045f500b4a121f9d1f1d527687ee0bc5d1283946"
+  },
+  "snapshot": {
+    "event_id": "us6000thpb",
+    "run_id": "us6000thpb__20260817T050000Z__curated-v1",
+    "snapshot_id": "us6000thpb__20260817T050000Z__curated-v1",
+    "snapshot_time": "2026-08-17T05:00:00Z",
+    "status": "completed"
+  },
+  "event_slug": "39-km-nne-of-suez-egypt-2026-us6000thpb-868a18fb",
+  "product_slug": "snapshot-20260817-050000z-curated-v1"
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "68-km-nnw-of-ende-indonesia-2026-us6000tkt2-382efeea",
+  "title": "2026 Ende–Flores, Indonesia",
+  "event_type": "Earthquake",
+  "event_date": "2026-08-15",
+  "tag": "Snapshot briefing",
+  "meta": "2026-08-15 · 32 sources · 45/45 facts cited",
+  "description": "Automated APHR products for 2026 Ende–Flores, Indonesia.",
+  "products": [
+    {
+      "slug": "snapshot-20260817-050000z-curated-v1",
+      "title": "Snapshot briefing · Aug 17, 2026 05:00 UTC",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-08-17T09:00:00Z",
+      "counts": {
+        "facts_cited": 45,
+        "facts_total": 45,
+        "sources": 32
+      },
+      "summary": "Website-ready APHR snapshot briefing with 32 sources and 45/45 cited facts.",
+      "manifest_path": "products/snapshot-20260817-050000z-curated-v1/manifest.json",
+      "snapshot_time": "2026-08-17T05:00:00Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20260817-050000z-curated-v1"
+}
