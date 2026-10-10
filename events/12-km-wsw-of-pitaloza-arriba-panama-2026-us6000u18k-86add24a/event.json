@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "12-km-wsw-of-pitaloza-arriba-panama-2026-us6000u18k-86add24a",
+  "title": "12 km WSW of Pitaloza Arriba, Panama",
+  "event_type": "Earthquake",
+  "event_date": "2026-10-09",
+  "tag": "Snapshot briefing",
+  "meta": "2026-10-09 · 31 sources · 52/141 facts cited",
+  "description": "Automated APHR products for 12 km WSW of Pitaloza Arriba, Panama.",
+  "products": [
+    {
+      "slug": "snapshot-20261010-000000z",
+      "title": "Snapshot briefing · Oct 10, 2026",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-10-10T01:59:53.063727Z",
+      "counts": {
+        "facts_cited": 52,
+        "facts_total": 141,
+        "sources": 31
+      },
+      "summary": "Website-ready APHR snapshot briefing with 31 sources and 52/141 cited facts.",
+      "manifest_path": "products/snapshot-20261010-000000z/manifest.json",
+      "snapshot_time": "2026-10-10T00:00:00Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20261010-000000z"
+}
