@@ -1,0 +1,62 @@
+{
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "building",
+      "title": "Building Damage"
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure Impact"
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience and Recovery"
+    },
+    {
+      "id": "references",
+      "title": "References"
+    }
+  ],
+  "event_title": "12 km WSW of Pitaloza Arriba, Panama",
+  "schema_version": "1.0",
+  "product_type": "snapshot_briefing",
+  "bundle_type": "aphr_web_product",
+  "title": "12 km WSW of Pitaloza Arriba, Panama",
+  "generated_at": "2026-10-10T04:43:43.083681Z",
+  "event_date": "2026-10-09",
+  "content_path": "content.html",
+  "assets": {
+    "intensity_image": "assets/intensity.jpg",
+    "pager_images": [
+      "assets/pager_1.png",
+      "assets/pager_2.png"
+    ]
+  },
+  "counts": {
+    "facts_cited": 41,
+    "facts_total": 135,
+    "sources": 31
+  },
+  "evidence": {
+    "package_id": "pkg_873156b248b3a5f3efa8e836b71e3e8b15cb4531f9a2a38b36c8341d4c91ca77",
+    "schema_version": "1.0",
+    "event_context_hash": "93ac30a2e9c640e909fd9186860b6b406454d9c425e11df56c49e4c15b332fd1"
+  },
+  "event": {
+    "event_id": "us6000u18k",
+    "event_context_hash": "93ac30a2e9c640e909fd9186860b6b406454d9c425e11df56c49e4c15b332fd1"
+  },
+  "snapshot": {
+    "event_id": "us6000u18k",
+    "run_id": "us6000u18k__20261010T040000Z",
+    "snapshot_id": "us6000u18k__20261010T040000Z",
+    "snapshot_time": "2026-10-10T04:00:00Z",
+    "status": "completed"
+  },
+  "event_slug": "12-km-wsw-of-pitaloza-arriba-panama-2026-us6000u18k-86add24a",
+  "product_slug": "snapshot-20261010-040000z"
+}
