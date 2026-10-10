@@ -76,11 +76,18 @@ The usual frontend checkout has two remotes with deliberately different roles:
   should remain fetch-only;
 - `upstream/main` is the reader-facing production branch.
 
-A production release starts from a freshly fetched `upstream/main`, reuses the
-validated bundle and publication metadata, and is proposed on a new personal
-`release/*` branch through a reviewed pull request. Do not merge, cherry-pick,
-or otherwise promote staging publication history as a whole: staging may
-contain test-only products and has a different history from production.
+Unattended production uses a separate deployment checkout, configuration, and
+state managed by `aphr-ops`, with a dedicated `production` remote pointing to
+the reader-facing repository. Ops publishes the output approved by automated
+content review from the production branch's fresh tip, using a normal push
+under the accepted release policy and branch protections. Domain experts can
+review published reports and suggest later refinements; per-report human
+approval is not required. The usual development `upstream` remains fetch-only.
+
+The historical manual `release/*` pull-request route remains available for
+review-disabled runs. Do not use it to promote the original, uncorrected
+bundle of a reviewed run. Do not merge, cherry-pick, or otherwise promote
+staging publication history as a whole: staging may contain test-only products.
 
 The complete operational and production-release procedure is documented in
 the [`aphr-ops` deployment runbook](https://github.com/Nutlettt/aphr-ops/blob/main/docs/deployment-runbook.md).
