@@ -132,10 +132,24 @@ regular checkout and is removed after the operation.
 The usual frontend checkout has two remotes with deliberately different roles:
 
 - `origin` is the personal `Nutlettt/aphr-briefings` repository;
-- `origin/staging` is the automated development and acceptance target;
+- `origin/dell-staging` is the automated development and acceptance target;
 - `upstream` is the teacher-owned `k-mosalam/aphr-briefings` repository and
   should remain fetch-only;
 - `upstream/main` is the reader-facing production branch.
+
+`upstream/main` is the only source of truth for the site. It changes in two
+ways only: `aphr-ops` publication, and pull requests from personal feature
+branches. Do not push development work to it directly. `origin/main` mirrors
+`upstream/main` and receives no commits of its own; update it by syncing the
+fork. Start each source change from a fresh `upstream/main` on a personal
+feature branch and open a pull request against `k-mosalam/aphr-briefings`.
+
+`origin/dell-staging` began as a copy of `upstream/main` and accumulates
+staging publications. When reviewed tooling, templates, or shared assets reach
+`upstream/main`, bring them into `dell-staging` with a normal one-way merge
+before the next staging acceptance, as described in the operations runbook.
+The former `origin/staging` branch is retained only as the tag
+`archive/staging-20261009`.
 
 Unattended production uses a separate deployment checkout, configuration, and
 state managed by `aphr-ops`, with a dedicated `production` remote pointing to
