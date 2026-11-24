@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "slug": "7-km-ene-of-carhuamayo-peru-2026-us6000ucfm-0823346c",
+  "title": "7 km ENE of Carhuamayo, Peru",
+  "event_type": "Earthquake",
+  "event_date": "2026-11-20",
+  "tag": "Snapshot briefing",
+  "meta": "2026-11-20 · 15 sources · 21/56 facts cited",
+  "description": "Automated APHR products for 7 km ENE of Carhuamayo, Peru.",
+  "products": [
+    {
+      "slug": "snapshot-20261124-000000z",
+      "title": "Snapshot briefing · Nov 24, 2026",
+      "product_type": "snapshot_briefing",
+      "generated_at": "2026-11-24T04:01:30.011998Z",
+      "counts": {
+        "facts_cited": 21,
+        "facts_total": 56,
+        "sources": 15
+      },
+      "summary": "Website-ready APHR snapshot briefing with 15 sources and 21/56 cited facts.",
+      "manifest_path": "products/snapshot-20261124-000000z/manifest.json",
+      "snapshot_time": "2026-11-24T00:00:00Z"
+    }
+  ],
+  "latest_product_slug": "snapshot-20261124-000000z"
+}

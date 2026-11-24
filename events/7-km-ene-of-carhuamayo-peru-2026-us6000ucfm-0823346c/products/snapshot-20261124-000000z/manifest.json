@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-11-24T04:01:30.011998Z",
+  "assets": {
+    "intensity_image": "assets/intensity.jpg",
+    "pager_images": [
+      "assets/pager_1.png",
+      "assets/pager_2.png"
+    ]
+  },
+  "bundle_type": "aphr_web_product",
+  "schema_version": "1.0",
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction"
+    },
+    {
+      "id": "building",
+      "title": "Building Damage"
+    },
+    {
+      "id": "infrastructure",
+      "title": "Infrastructure Impact"
+    },
+    {
+      "id": "resilience",
+      "title": "Resilience and Recovery"
+    },
+    {
+      "id": "references",
+      "title": "References"
+    }
+  ],
+  "product_type": "snapshot_briefing",
+  "counts": {
+    "facts_cited": 21,
+    "facts_total": 56,
+    "sources": 15
+  },
+  "title": "7 km ENE of Carhuamayo, Peru",
+  "event_date": "2026-11-20",
+  "content_path": "content.html",
+  "event_title": "7 km ENE of Carhuamayo, Peru",
+  "evidence": {
+    "package_id": "pkg_6ab01a71c253a35bdc428053e567e26725605c77cf9f7be8075f7ea6c6ef9399",
+    "schema_version": "1.0",
+    "event_context_hash": "90e3d09efec1233972fb1d6c140f3ac04fc25f7b922a25b97e6848ee294d272c"
+  },
+  "event": {
+    "event_id": "us6000ucfm",
+    "event_context_hash": "90e3d09efec1233972fb1d6c140f3ac04fc25f7b922a25b97e6848ee294d272c"
+  },
+  "snapshot": {
+    "event_id": "us6000ucfm",
+    "run_id": "us6000ucfm__20261124T000000Z",
+    "snapshot_id": "us6000ucfm__20261124T000000Z",
+    "snapshot_time": "2026-11-24T00:00:00Z",
+    "status": "completed"
+  },
+  "event_slug": "7-km-ene-of-carhuamayo-peru-2026-us6000ucfm-0823346c",
+  "product_slug": "snapshot-20261124-000000z"
+}
